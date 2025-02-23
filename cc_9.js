@@ -33,6 +33,12 @@ class Manager extends Employee {
     calculateBonus() {
         return this.salary * 12 * 0.10; // Calculation of Annual Manager Bonus
     }
+
+    // Task 4 Modifications
+    calculateAnnualSalary() {
+    return this.salary * 12 + this.calculateBonus();
+}
+
 };
 
 const mgr1 = new Manager("John Smith", 201, "IT", 8000, 5); // Creating new Manager Object
@@ -53,6 +59,14 @@ class Company {
     listEmployees() {
         this.employees.forEach(employee => console.log(employee.getDetails())); // list of employees
     }
+    // Task 4 Modifications
+    calculateTotalPayroll () {
+        return this.employees.reduce((total, employee) => {
+            return total + employee.calculateAnnualSalary(); // Total Payroll
+        }, 0); //  Calculate Total Payroll
+    
+    }
+    
 };
 
 // Creating a new company instance and addding employees
@@ -62,4 +76,8 @@ company.addEmployee(emp1); // adding an employee
 company.addEmployee(mgr1); // adding manager
 
 company.listEmployees(); // list the employees
+
+// Task 4 Implementing a Payroll System
+
+console.log("Total Payroll: $", company.calculateTotalPayroll()); // Expected output: 165600 (assuming emp1 and mgr1 salaries)
 
