@@ -40,3 +40,26 @@ const mgr1 = new Manager("John Smith", 201, "IT", 8000, 5); // Creating new Mana
 console.log(mgr1.getDetails()); // Expected output: "Manager: John Smith, ID: 201, Department: IT, Salary: $8000, Team Size: 5"
 console.log("Bonus:", mgr1.calculateBonus()); // Expected output: 9600
 
+// Task 3 Creating a Company Class
+
+class Company {
+    constructor(name) {
+        this.name = name; // Company Name
+        this.employees = []; // Company Employees
+    }; // 
+    addEmployee(employee) {
+        this.employees.push(employee); // add an employyee to company employee list
+    }
+    listEmployees() {
+        this.employees.forEach(employee => console.log(employee.getDetails())); // list of employees
+    }
+};
+
+// Creating a new company instance and addding employees
+
+const company = new Company("TechCorp"); // declaring company name
+company.addEmployee(emp1); // adding an employee
+company.addEmployee(mgr1); // adding manager
+
+company.listEmployees(); // list the employees
+
