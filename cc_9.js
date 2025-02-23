@@ -66,6 +66,12 @@ class Company {
         }, 0); //  Calculate Total Payroll
     
     }
+    // Task 5 Modifications
+    promoteToManager (employee, teamSize) {
+        const index = this.employees.indexOf(employee);
+        if (index !== -1)
+            this.employees[index] = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize);
+    }
     
 };
 
@@ -81,3 +87,7 @@ company.listEmployees(); // list the employees
 
 console.log("Total Payroll: $", company.calculateTotalPayroll()); // Expected output: 165600 (assuming emp1 and mgr1 salaries)
 
+// Task 5 Implementing Promotions
+
+company.promoteToManager(emp1, 3); // Promote employee 1 to Manager
+company.listEmployees(); // Expected output: "Manager: Alice Johnson, ID: 101, Department: Sales, Salary: $5000, Team Size: 3"
